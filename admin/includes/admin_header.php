@@ -1,6 +1,7 @@
 <!-- Helps send request from body to redirect -->
 <?php ob_start(); ?>
 <?php include "../includes/db.php" ?>
+<?php include "functions.php" ?>
 
 
 

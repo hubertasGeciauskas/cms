@@ -13,16 +13,19 @@
 
             <!-- Blog Entries Column -->
             <div class="col-md-8">
-            <h1 class="page-header">
-                            Page Heading
-                            <small>Secondary Text</small>
-                        </h1>
-                <?php 
-                
-                $query = "SELECT * FROM posts ";
-                $select_all_posts_query= mysqli_query($connection, $query);
 
-                while($row = mysqli_fetch_assoc($select_all_posts_query)) {
+            
+                <?php 
+
+                if(isset($_GET['category'])) {
+                    $post_category_id = $_GET['category'];
+
+                }
+                
+                $query = "SELECT * FROM posts WHERE post_id = $post_category_id ";
+                $select_category= mysqli_query($connection, $query);
+
+                while($row = mysqli_fetch_assoc($select_category)) {
                     $post_id = $row['post_id'];
                    $post_title = $row['post_title'];
                    $post_author = $row['post_author'];
